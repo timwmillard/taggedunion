@@ -28,7 +28,7 @@ InstructionList *filter_by_oid(InstructionList *instructions, int oid)
 
 int main()
 {
-    InstructionList* il = 
+    InstructionList *il = 
         list((Instruction){.type = ORDER, .order = {.id = 1, .price = 50.0}}, 
         list((Instruction){.type = ORDER, .order = {.id = 2, .price = 50.0}}, 
         list((Instruction){.type = CANCEL, .cancel = {.xid = 1}},
@@ -36,10 +36,12 @@ int main()
         list((Instruction){.type = ORDER, .order = {.id = 4, .price = 50.0}}, 
         empty_list)))));
 
-    print_list(il);
+    print_list("il", il);
 
-    il = filter_by_oid(il, 3); 
-    il = map(times2, il);
+    InstructionList *a = filter_by_oid(il, 3); 
+    InstructionList *b = map(times2, il);
 
-    print_list(il);
+    print_list("il", il);
+    print_list("a", a);
+    print_list("b", b);
 }

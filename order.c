@@ -140,8 +140,8 @@ int instruction_id(Instruction instruction)
 }
 
 // Print list
-void print_list(InstructionList* list) {
-    printf("[");
+void print_list(char *name, InstructionList* list) {
+    printf("%s [", name);
     while (list) {
         printf("%d", instruction_id(list->value));
         if (list->value.type == ORDER) printf("($%.2f)", list->value.order.price);
